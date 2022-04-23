@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { stringify } = require("nodemon/lib/utils");
 const validator = require("validator");
 
 const userSchema = new mongoose.Schema(
@@ -32,6 +33,13 @@ const userSchema = new mongoose.Schema(
       minLength: 10,
       unique: [true, "Phone Number is Already Present"],
     },
+    pastexam: [
+      {
+        totalMarks: Number,
+        negativeMarks: Number,
+        subjectType: String,
+      },
+    ],
   },
   { timestamps: true }
 );
